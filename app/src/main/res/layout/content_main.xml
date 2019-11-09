@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <se.dagensvimmerby.SwipeToRefresh
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,6 +13,6 @@
             android:layout_height="match_parent"
             android:id="@+id/mainWebView">
         </WebView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </se.dagensvimmerby.SwipeToRefresh>
 
 </LinearLayout>

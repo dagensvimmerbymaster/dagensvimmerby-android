@@ -13,14 +13,15 @@ import com.parse.ParseObject;
 import java.util.HashMap;
 import java.util.TimeZone;
 
+import crm.agile.agilecrm.BuildConfig;
+
 public class MyParseInstallation extends ParseTools {
 
     private static final String TAG = "MyParseInstallation";
 
-    private static final String SENDER_ID = ""; // TODO: Add senderId
+    private static final String SENDER_ID = BuildConfig.FCM_SENDERID;
     private static final String TYPE = "fcm";
-    private static final String VERSION_NAME = "1.13.1"; // Parse verison name, this constant is in
-    // ParseObject but private..... // TODO: Remember to change this if change parseVersion
+    private static final String VERSION_NAME = BuildConfig.PARSE_VERSION;
 
     private static final String KEY_OBJECT_ID = "objectId";
     private static final String KEY_GCMSENDER_ID = "GCMSenderId";

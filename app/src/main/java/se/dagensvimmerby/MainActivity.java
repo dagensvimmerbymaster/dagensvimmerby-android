@@ -17,11 +17,12 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import crm.agile.agilecrm.BuildConfig;
 import crm.agile.agilecrm.R;
 
 public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefreshListener{
     Snackbar snackbar;
-    SwipeRefreshLayout swipeRefreshLayout;
+    SwipeToRefresh swipeRefreshLayout;
     WebView webView ;
     String url;
 
@@ -57,7 +58,7 @@ public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefre
         String id = intent.getStringExtra("id");
 
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.refreshLayout);
+        swipeRefreshLayout = (SwipeToRefresh) findViewById(R.id.refreshLayout);
         swipeRefreshLayout.setOnRefreshListener(this);
         webView = (WebView) findViewById(R.id.mainWebView);
 
@@ -75,12 +76,14 @@ public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefre
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 
         webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-        webView.getSettings().setJavaScriptEnabled(true);
 
         //webPage.getSettings().setPluginState(PluginState.ON);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
         webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(false);
 
         webView.getSettings().setDatabaseEnabled(true);
         webView.getSettings().setDatabasePath("/data/data/" + "crm.agile.agilecrm" + "/databases/");
@@ -89,8 +92,8 @@ public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefre
 
         webView.setWebChromeClient(new WebChromeClient());
 
+        webView.loadUrl(BuildConfig.WEB_URL);
 
-        webView.loadUrl("http://m.dagensvimmerby.se/");
 
     }
 

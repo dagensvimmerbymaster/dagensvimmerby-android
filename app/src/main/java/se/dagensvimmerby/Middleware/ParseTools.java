@@ -5,10 +5,12 @@ import android.content.Context;
 import com.parse.Parse;
 import com.parse.ParseException;
 
+import crm.agile.agilecrm.BuildConfig;
+
 public class ParseTools {
 
-    private static String appId = ""; // TODO: Add appID and serverUrl
-    private static String serverUrl = "";
+    private static String appId = BuildConfig.PARSE_APPID;
+    private static String serverUrl = BuildConfig.PARSE_SERVERID;
 
     public static void setUpParse(Context context) {
         Parse.enableLocalDatastore(context);
