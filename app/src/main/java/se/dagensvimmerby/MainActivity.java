@@ -21,12 +21,15 @@ import crm.agile.agilecrm.BuildConfig;
 import crm.agile.agilecrm.R;
 
 public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefreshListener{
+    private final static int RELOAD_TIME_LIMIT = 15 * 60 * 1000;
+
     Snackbar snackbar;
     SwipeToRefresh swipeRefreshLayout;
     WebView webView ;
     String url;
 
     private ProgressDialog progressx;
+    private long onPauseTimeStamp = 0;
     Context context;
     String x="x";
     @Override
@@ -95,6 +98,20 @@ public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefre
         webView.loadUrl(BuildConfig.WEB_URL);
 
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        onPauseTimeStamp = System.currentTimeMillis();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (onPauseTimeStamp > 0 && (onPauseTimeStamp+RELOAD_TIME_LIMIT) <= System.currentTimeMillis()) {
+            webView.loadUrl(BuildConfig.WEB_URL);
+        }
     }
 
     @Override
