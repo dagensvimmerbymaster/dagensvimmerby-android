@@ -110,6 +110,7 @@ public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefre
     protected void onResume() {
         super.onResume();
         if (onPauseTimeStamp > 0 && (onPauseTimeStamp+RELOAD_TIME_LIMIT) <= System.currentTimeMillis()) {
+            webView.scrollTo(0,0);
             webView.loadUrl(BuildConfig.WEB_URL);
         }
     }
@@ -147,7 +148,6 @@ public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefre
             public void onPageFinished(WebView view, String url) {
                 progressx.cancel();
                 swipeRefreshLayout.setRefreshing(false);
-
 
             }
 
