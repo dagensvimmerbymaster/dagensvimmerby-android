@@ -3,4 +3,7 @@
     <color name="colorPrimary">#616161</color>
     <color name="colorPrimaryDark">#424242</color>
     <color name="colorAccent">#d84315</color>
+    <color name="colorBuyButton">#20A11D</color>
+    <color name="colorBuyButtonDisabled">#AFAFAF</color>
+    <color name="white">#FFFFFF</color>
 </resources>

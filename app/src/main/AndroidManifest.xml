@@ -5,37 +5,32 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:name="se.dagensvimmerby.MyApplication"
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
 
         <!-- FCM -->
-        <service
-            android:name="se.dagensvimmerby.CloudMessaging.MyFirebaseMessagingService">
+        <service android:name="se.dagensvimmerby.CloudMessaging.MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <service
-            android:name="se.dagensvimmerby.CloudMessaging.MyFirebaseInstanceIDService">
+        <service android:name="se.dagensvimmerby.CloudMessaging.MyFirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
 
         <activity
             android:name="se.dagensvimmerby.Home"
-            android:hardwareAccelerated="true"
-
-            >
+            android:hardwareAccelerated="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,10 +39,10 @@
         </activity>
         <activity
             android:name="se.dagensvimmerby.MainActivity"
-            android:hardwareAccelerated="true"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
-             />
-
+            android:hardwareAccelerated="true" />
+        <activity android:name="se.dagensvimmerby.SupporterActivity"
+            />
     </application>
 
 </manifest>

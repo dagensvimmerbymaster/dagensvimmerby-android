@@ -2,4 +2,8 @@
     <string name="app_name">Dagens Västervik</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_home">Home</string>
+    <string name="supporter_title_text">BLI DVV SUPPORTER!</string>
+    <string name="supporter_body_text"><![CDATA[Dagens Västervik är en lokalt ägd dagstidning som drivs av Dagens Vimmerby AB och Mediapartner AB. Till skillnad från många andra i branschen har vi valt att inte låsa in några artiklar bakom betalväggar. Vi vill att alla medborgare i Västervik kommun ska ha samma rätt till sin moderna dagstidning med cirka 20 artiklar varje dag året om. Vill du hjälpa oss att bli ännu bättre? I så fall kan du bli DVV-supporter.]]></string>
+    <string name="supporter_title_text_done">Tack för att du är DVV Supporter!</string>
+    <string name="billing_license"></string>
 </resources>

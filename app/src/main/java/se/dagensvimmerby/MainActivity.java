@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.SwipeDismissBehavior;
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -124,11 +126,16 @@ public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefre
     private class MyBrowser extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            if (!isNetworkAvailable()) {
+            String[] split = url.split("/");
+            boolean isSupporterLink = split.length > 0 && split[split.length - 1].contains(BuildConfig.SUPPORTER_PATH);
+            if (isSupporterLink) {
+                Log.d("supporterLink", "isSupporterLink");
+                Intent intent = new Intent(MainActivity.this, SupporterActivity.class);
+                startActivity(intent);
+            }else if (!isNetworkAvailable()) {
                 snackbar.show();
             }else {
                 view.loadUrl(url);
-
             }
 
 

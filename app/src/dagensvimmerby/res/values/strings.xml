@@ -2,4 +2,8 @@
     <string name="app_name">Dagens Vimmerby</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_home">Home</string>
+    <string name="supporter_title_text">BLI DV SUPPORTER!</string>
+    <string name="supporter_body_text"><![CDATA[Dagens Vimmerby är en lokalt ägd dagstidning som drivs av Jakob Karlsson, Simon Henriksson och Linus Johansson. Till skillnad från många andra i branschen har vi valt att inte låsa in några artiklar bakom betalväggar. Vi vill att alla medborgare i Vimmerby kommun ska ha samma rätt till sin moderna dagstidning med cirka 20 artiklar varje dag året om. Vill du hjälpa oss att bli ännu bättre? I så fall kan du bli DV-supporter.]]></string>
+    <string name="supporter_title_text_done">Tack för att du är DV Supporter!</string>
+    <string name="billing_license"></string>
 </resources>

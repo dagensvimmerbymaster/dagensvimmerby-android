@@ -91,4 +91,22 @@ public class MyParseInstallation extends ParseTools {
         int stringId = context.getApplicationInfo().labelRes;
         return context.getString(stringId);
     }
+
+    public static void validatePurchase(String packageName, String productId, String purchaseToken, final DoneCallback callback) {
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("packageName", packageName);
+        params.put("productId", productId);
+        params.put("purchaseToken", purchaseToken);
+
+        ParseCloud.callFunctionInBackground("verifyReceiptGoogle", params, new FunctionCallback<Object>() {
+            @Override
+            public void done(Object object, ParseException e) {
+                if (e == null) {
+                    callback.done();
+                } else {
+                    callback.error(e);
+                }
+            }
+        });
+    }
 }
